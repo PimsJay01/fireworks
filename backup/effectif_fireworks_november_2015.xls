@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+
+<title>Fireworks mobile</title></head><body>
+<table>
+    <tr style="text-align: left;" >
+        <th>Nom &amp; Prénom</th>
+        <th>Equipe</th>
+        <th>Licence</th>
+        <th>Maillot</th>
+        <th>Téléphone</th>
+        <th>Mail</th>
+        <th>Adresse</th>
+    </tr>
+            <tr>
+            <td>Ancelici Giacomo</td>
+            <td>Fireworks 2</td>
+            <td>3696</td>
+            <td>                6 (L)            </td>
+            <td>076 665 11 70</td>
+            <td>giacomo.angelici@tiscali.it</td>
+            <td>Ch. Des Coudriers 54 1209 Petit Saconnex</td>
+        </tr>
+            <tr>
+            <td>Armuna Ivan</td>
+            <td>Fireworks 2</td>
+            <td>2642</td>
+            <td></td>
+            <td>079 430 12 04</td>
+            <td>iarmuna@hotmail.com</td>
+            <td>Chemin du Prunier 9 1218 Le Grand-Saconnex</td>
+        </tr>
+            <tr>
+            <td>Armuna Jorge</td>
+            <td>Fireworks 2</td>
+            <td>3040</td>
+            <td></td>
+            <td>078 866 30 51</td>
+            <td></td>
+            <td>Rue de la Servette 82 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Axel Papatoukidis</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>078 656 43 21</td>
+            <td></td>
+            <td></td>
+        </tr>
+            <tr>
+            <td>Barman Florian</td>
+            <td>Fireworks 1</td>
+            <td>3421</td>
+            <td>                30 (XL)            </td>
+            <td>079 433 52 66</td>
+            <td>florian.barman@outlook.fr</td>
+            <td>Chemin de Marcelly 1 1226 Thônex</td>
+        </tr>
+            <tr>
+            <td>Capon Miguel</td>
+            <td>Fireworks 1</td>
+            <td>1472</td>
+            <td>                16 (XL)            </td>
+            <td>078 639 39 38</td>
+            <td>miguel.capon@hotmail.com</td>
+            <td>Rue Schaub 9 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Carreno William</td>
+            <td>Fireworks 1</td>
+            <td>1988</td>
+            <td>                7 (L)            </td>
+            <td>079 280 98 81</td>
+            <td>william.carreno@rolex.com</td>
+            <td>Rue de Vermont 53 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Castillo Rafael</td>
+            <td>Fireworks 1</td>
+            <td>3244</td>
+            <td>                28 (M)            </td>
+            <td>078 920 06 75</td>
+            <td>rafael_castillo1226@hotmail.com</td>
+            <td>Ch. Curé-Desclouds 1 1226 Thônex</td>
+        </tr>
+            <tr>
+            <td>Chicote Michael</td>
+            <td>Fireworks 2</td>
+            <td>1777</td>
+            <td>                17 (L)            </td>
+            <td>076 584 59 92</td>
+            <td>michaelsebastian.chicote@hcuge.ch</td>
+            <td>Ch. Fief-du-Chapitre 3 1213 Petit-Lancy</td>
+        </tr>
+            <tr>
+            <td>Crettenand Mathieu</td>
+            <td>Fireworks 2</td>
+            <td>1993</td>
+            <td></td>
+            <td>079 277 41 65</td>
+            <td>mathieu.crettenand@bluewin.ch</td>
+            <td>Rue de Lausanne 30 1201 Genève</td>
+        </tr>
+            <tr>
+            <td>Di Giuseppe Marc</td>
+            <td>Fireworks 2</td>
+            <td>3061</td>
+            <td>                22 (L)            </td>
+            <td>079 254 67 36</td>
+            <td>marc.digi@yahoo.fr</td>
+            <td>Av. d'Aïre 93E1203 Genève</td>
+        </tr>
+            <tr>
+            <td>Doswald Elric</td>
+            <td>Fireworks 1</td>
+            <td>3829</td>
+            <td>                20 (?)            </td>
+            <td>078 697 86 55</td>
+            <td>e.doswald@lombardodier.ch</td>
+            <td>Clos des Ecornaches 1226 Thônex</td>
+        </tr>
+            <tr>
+            <td>Fente Miguel</td>
+            <td>Fireworks 2</td>
+            <td>1994</td>
+            <td>                9 (XL)            </td>
+            <td>079 753 59 84</td>
+            <td>miguelfente@bluewin.ch</td>
+            <td>Rue de Vermont 7 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Ferrer Alain</td>
+            <td>Fireworks 1</td>
+            <td>1989</td>
+            <td></td>
+            <td>076 223 50 53</td>
+            <td>alain.ferrer@edu.ge.ch</td>
+            <td>Allée Amboisine 141 F-7416</td>
+        </tr>
+            <tr>
+            <td>Gagliardi Gianni</td>
+            <td>Fireworks 2</td>
+            <td>3232</td>
+            <td>                25 (L)            </td>
+            <td>078 802 68 61</td>
+            <td>gianni@tdcproject.com</td>
+            <td>Rue de la Coupe Gordon-Bennett 3D 1219 Le Lignon</td>
+        </tr>
+            <tr>
+            <td>Gobet Cédric</td>
+            <td>Fireworks 1</td>
+            <td>3248</td>
+            <td>                21 (L)            </td>
+            <td>076 379 85 65</td>
+            <td>gobetce@gmail.com</td>
+            <td>Rue des Caroubiers 18 1227 Carouge</td>
+        </tr>
+            <tr>
+            <td>Gobet Jérémy</td>
+            <td>Fireworks 1</td>
+            <td>3112</td>
+            <td></td>
+            <td>078 717 73 66</td>
+            <td>jeremy.gobet.72@gmail.com</td>
+            <td>19, Voie-Creuse 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Gothuey Georges</td>
+            <td>Fireworks 2</td>
+            <td>3060</td>
+            <td>                13 (XXL)            </td>
+            <td>078 907 44 79</td>
+            <td>georges_gva@hotmail.com</td>
+            <td>Ch. Moise Duboule 39 1209 Petit Saconnex</td>
+        </tr>
+            <tr>
+            <td>Gothuey Sebastien</td>
+            <td>Fireworks 2</td>
+            <td>3987</td>
+            <td>                32 (XXL)            </td>
+            <td>078 620 13 36</td>
+            <td>sebastien.gothuey@etu.hesge.ch</td>
+            <td>Rue du Colombier 12 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Ohnmacht Felix</td>
+            <td>Fireworks 1</td>
+            <td>3944</td>
+            <td></td>
+            <td>079 489 77 43</td>
+            <td>felix.ohnmacht@graduateinstitute.ch</td>
+            <td>Rue Edouard Racine 10 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Pineiro Elvis</td>
+            <td>Fireworks 1</td>
+            <td>3234</td>
+            <td>                8 (XL)            </td>
+            <td>079 200 25 69</td>
+            <td>elvis.pineiro@gmail.com</td>
+            <td>Av. d'Aïre 30 1203 Genève</td>
+        </tr>
+            <tr>
+            <td>Pry Frederic</td>
+            <td></td>
+            <td>3221</td>
+            <td></td>
+            <td>076 384 88 24</td>
+            <td>frederic.pry@bnpparibas.com</td>
+            <td>Rte de Frontenex 60 D 1207 Genève</td>
+        </tr>
+            <tr>
+            <td>Riahi Nessim</td>
+            <td>Fireworks 2</td>
+            <td>3802</td>
+            <td>                14 (XL)            </td>
+            <td>078 696 14 91</td>
+            <td>madnessim@gmail.com</td>
+            <td>Rue Chabrey 19 1202 genève</td>
+        </tr>
+            <tr>
+            <td>Riahi Nizar</td>
+            <td>Fireworks 2</td>
+            <td>3332</td>
+            <td>                24 (L)            </td>
+            <td>079 671 72 27</td>
+            <td>riahinizar@hotmail.com</td>
+            <td>Rue du vidollet 21 1202 genève</td>
+        </tr>
+            <tr>
+            <td>Ruedin Baptiste</td>
+            <td>Fireworks 1</td>
+            <td>3205</td>
+            <td>                18 (XXL)            </td>
+            <td>079 221 75 31</td>
+            <td>baptiste.ruedin@gmail.com</td>
+            <td>Rue Lamartine 14 1203 Genève</td>
+        </tr>
+            <tr>
+            <td>Sarmiento Alexandre</td>
+            <td>Fireworks 2</td>
+            <td>3719</td>
+            <td>                23 (XXL)            </td>
+            <td>078 821 99 48</td>
+            <td>a_sarmiento80@hotmail.com</td>
+            <td>Chemin du Chablais 3 1226 Thônex</td>
+        </tr>
+            <tr>
+            <td>Schreyer Fabien</td>
+            <td>Fireworks 2</td>
+            <td>3637</td>
+            <td></td>
+            <td>078 745 27 94</td>
+            <td>nalyd84@hotmail.com</td>
+            <td>Rue du Contrat-Social 7 1203 Genève</td>
+        </tr>
+            <tr>
+            <td>Senor Dave</td>
+            <td>Fireworks 1</td>
+            <td>3190</td>
+            <td>                29 (XL)            </td>
+            <td> 079 273 96 73</td>
+            <td>benedict.fleurinor@gmail.com</td>
+            <td>Chemin de la Place Verte 6 1234 Vessy</td>
+        </tr>
+            <tr>
+            <td>Simonnin David</td>
+            <td>Fireworks 2</td>
+            <td>3330</td>
+            <td>                11 (L)            </td>
+            <td>078 602 41 85</td>
+            <td>david.simonnin@gmail.com</td>
+            <td>Champ d'Anier 1209 Genève</td>
+        </tr>
+            <tr>
+            <td>Sindler Marc</td>
+            <td>Fireworks 1</td>
+            <td>3246</td>
+            <td>                5 (XL)            </td>
+            <td>079 396 05 49</td>
+            <td>sindler.marc@gmail.com</td>
+            <td>Rte d’Ambilly 22 1227 Thônex</td>
+        </tr>
+            <tr>
+            <td>Stoller Dylan</td>
+            <td>Fireworks 2</td>
+            <td>1097</td>
+            <td>                4 (XXL)            </td>
+            <td>076.516.05.85</td>
+            <td>dylantmpl@gmail.com</td>
+            <td>Chemin de Blonay 15B 1234 Vessy</td>
+        </tr>
+            <tr>
+            <td>Stoller Olivier</td>
+            <td>Fireworks 2</td>
+            <td>3720</td>
+            <td>                15 (XXL)            </td>
+            <td>078.841.25.36</td>
+            <td>lersto55@hotmail.fr</td>
+            <td>Ch. Bois des Arts 77 1226 Thônex</td>
+        </tr>
+            <tr>
+            <td>Usellini Damiano</td>
+            <td>Fireworks 2</td>
+            <td>3058</td>
+            <td>                10 (L)            </td>
+            <td>076.568.07.05</td>
+            <td>dusellini@gmail.com</td>
+            <td>Ch. De Grange-Canal 28 1224 Chêne-bougeries</td>
+        </tr>
+            <tr>
+            <td>Varela Monica</td>
+            <td>Fireworks 2</td>
+            <td>3009</td>
+            <td></td>
+            <td>076.410.92.97</td>
+            <td>bandidamo@hotmail.com</td>
+            <td>Rue de Vermont 7 1202 Genève</td>
+        </tr>
+            <tr>
+            <td>Zimmerli Joakim</td>
+            <td>Fireworks 1</td>
+            <td>3243</td>
+            <td>                12 (L)            </td>
+            <td>076 419 47 63</td>
+            <td>joakim.zimmerli@gmail.com</td>
+            <td>Rue du Grand-Pré 4 1202 Genève</td>
+        </tr>
+    </table></body></html>

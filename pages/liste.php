@@ -36,7 +36,7 @@ $player_id = (isset($_GET['set_player_id'])) ? $_GET['set_player_id'] : $session
     }
     
     $players = new Player();
-    $players->select_team(0);
+    $players->select_team(-2);
     if(!$players->count()) echo '<tr><td colspan="6" >Aucun joueur</td></tr>';
     while($players->next()): ?>
         <tr>

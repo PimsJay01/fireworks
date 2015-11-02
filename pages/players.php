@@ -88,16 +88,18 @@ function photo($name) {
     $teams->select(); ?>
     <div class="ui-field-contain" >
         <select id="viewteam-player" data-theme="c" >
-            <option value="0">Tout les joueurs</option>
+            <option value="-2" <?php if($team == -2) echo 'selected="selected"'; ?> >Tous les joueurs</option>
+            <option value="-1"<?php if($team == -1) echo 'selected="selected"'; ?>  >Joueurs du club</option>
+            <option value="0" <?php if($team == 0) echo 'selected="selected"'; ?> >Joueurs sans équipes</option>
             <?php while($teams->next()): ?>
             <option value="<?php echo $teams->id; ?>" <?php if($team == $teams->id) echo 'selected="selected"'; ?> ><?php echo $teams->name; ?></option>
             <?php endwhile; ?>
         </select>
     </div>
     
-    <?php if($team == 0): ?>
+    <?php if($team == -2): ?>
     <a href="" data-icon="action" id="export-player" data-role="button" data-theme="b" >Exporter les infos</a>
-    <?php else: ?>
+    <?php elseif($team > 0): ?>
     <a href="" data-icon="bars" id="sheet-player" data-role="button" data-theme="b" >Feuille de match</a>
     <?php endif; ?>
     

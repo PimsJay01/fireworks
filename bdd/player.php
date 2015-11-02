@@ -41,8 +41,11 @@ class Player {
         $bdd->set_from('player');
         $bdd->add_left_join('jersey',$bdd->link('jersey','num','player','jersey'));
         $bdd->set_where($bdd->equal('hide',0));
-        if($team > 0) {
+        if($team > -1) {
             $bdd->add_where($bdd->equal('team',$team)); 
+        }
+        else if($team == -1) {
+            $bdd->add_where($bdd->greater('team',1));
         }
         $bdd->set_order('name');
         //récupération des données

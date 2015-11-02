@@ -60,7 +60,12 @@ class Session{
     }
 	
 	public function logout() {
-        $this->set_state(0);
+//         $this->set_state(0);
+        session_unset();
+        if(isset($_COOKIE['session_key'])) {
+            unset($_COOKIE['session_key']);
+            setcookie('session_key',null,-1,'/fireworks',null,false,true);
+        }
 	}
 	
 	/* PRIVATE FUNCTIONS */
@@ -101,7 +106,7 @@ class Session{
         $bdd->add_value('state',0);
         $bdd->add_value('cookie',$key);
         $bdd->insert('info');
-        setcookie('session_key',$key,time()+30*24*3600,null,null,false,true);
+        setcookie('session_key',$key,time()+30*24*3600,'/fireworks',null,false,true);
     }
 	
 	// Génére un clé unique

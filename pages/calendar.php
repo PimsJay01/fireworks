@@ -129,6 +129,12 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
 /* ------------------------------------------------------------------------- */
 ?><div data-role="content">
 
+    <?php $team = new Team(); 
+    $team->select($session->get_team());
+    if($team->next()): ?>
+        <h2><?php echo $team->name; ?></h2>
+    <?php endif; ?>
+
 	<div id="std72-calendar" ></div>
 	
 	<?php 

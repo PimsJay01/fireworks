@@ -15,7 +15,7 @@ class Team{
 		$bdd = new Bdd();
 		$bdd->set_from('team');
 		if($id > 0) {
-            $bdd->add_where($bdd->equal('id',$id)); 
+            $bdd->set_where($bdd->equal('id',$id)); 
         }
         $bdd->set_order('id');
 		//récupération des données

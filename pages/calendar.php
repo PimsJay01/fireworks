@@ -132,7 +132,7 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
     <?php $team = new Team(); 
     $team->select($session->get_team());
     if($team->next()): ?>
-        <h2><?php echo $team->name; ?></h2>
+        <h2 style="max-width: 700px; margin: 20px auto;"><?php echo $team->name; ?></h2>
     <?php endif; ?>
 
 	<div id="std72-calendar" ></div>

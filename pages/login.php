@@ -97,7 +97,7 @@ function initChecked($team_id) {
 	<div id="team-login" data-role="fieldcontain" data-theme="b" >
 		<fieldset data-role="controlgroup" data-type="vertical" data-theme="b" >
 			<legend>
-				Sélectionner une photo de profil
+				Sélectionnez votre équipe
 			</legend>
 			<?php 
 			$teams = new Team();

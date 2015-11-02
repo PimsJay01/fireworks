@@ -1,0 +1,117 @@
+/* bullseye */
+.ui-icon-bullseye:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/bullseye.svg");
+}
+.ui-nosvg .ui-icon-bullseye:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/bullseye.png");
+}
+/* comments-o */
+.ui-icon-comments-o:after {
+    background-position: 3px 2px;
+    background-image: url("images/my-icons-svg/comments-o.svg");
+}
+.ui-nosvg .ui-icon-comments-o:after {
+    background-position: 3px 2px;
+    background-image: url("images/my-icons-png/comments-o.png");
+}
+/* dribbble */
+.ui-icon-dribbble:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/dribbble.svg");
+}
+.ui-nosvg .ui-icon-dribbble:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/dribbble.png");
+}
+/* exclamation */
+.ui-icon-exclamation:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/exclamation.svg");
+}
+.ui-nosvg .ui-icon-exclamation:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/exclamation.png");
+}
+/* external-link3 */
+.ui-icon-external-link3:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/external-link3.svg");
+}
+.ui-nosvg .ui-icon-external-link3:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/external-link3.png");
+}
+/* file-text */
+.ui-icon-file-text:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/file-text.svg");
+}
+.ui-nosvg .ui-icon-file-text:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/file-text.png");
+}
+/* male */
+.ui-icon-male:after {
+    background-position: 6px 3px;
+    background-image: url("images/my-icons-svg/male.svg");
+}
+.ui-nosvg .ui-icon-male:after {
+    background-position: 6px 3px;
+    background-image: url("images/my-icons-png/male.png");
+}
+/* medkit */
+.ui-icon-medkit:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/medkit.svg");
+}
+.ui-nosvg .ui-icon-medkit:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/medkit.png");
+}
+/* picture-o */
+.ui-icon-picture-o:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/picture-o.svg");
+}
+.ui-nosvg .ui-icon-picture-o:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/picture-o.png");
+}
+/* question */
+.ui-icon-question:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-svg/question.svg");
+}
+.ui-nosvg .ui-icon-question:after {
+    background-position: 4px 4px;
+    background-image: url("images/my-icons-png/question.png");
+}
+/* suitcase */
+.ui-icon-suitcase:after {
+    background-position: 3px 3px;
+    background-image: url("images/my-icons-svg/suitcase.svg");
+}
+.ui-nosvg .ui-icon-suitcase:after {
+    background-position: 3px 3px;
+    background-image: url("images/my-icons-png/suitcase.png");
+}
+/* player */
+.ui-icon-player:after {
+    background-position: 5px 3px;
+    background-image: url("images/my-icons-svg/player.svg");
+}
+.ui-nosvg .ui-icon-player:after {
+    background-position: 5px 3px;
+    background-image: url("images/my-icons-png/player.png");
+}
+/* wheelchair */
+.ui-icon-wheelchair:after {
+    background-position: 4px 3px;
+    background-image: url("images/my-icons-svg/wheelchair.svg");
+}
+.ui-nosvg .ui-icon-wheelchair:after {
+    background-position: 4px 3px;
+    background-image: url("images/my-icons-png/wheelchair.png");
+}

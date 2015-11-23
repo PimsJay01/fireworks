@@ -36,10 +36,10 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
     </h1>
 	
 	<?php if($top_back): ?>
-    <a id="left-top" class="ui-btn-left" href="#" data-icon="arrow-l" data-iconpos="notext">Retour</a>
+        <a id="left-top" class="ui-btn-left" href="#" data-icon="arrow-l" data-iconpos="notext">Retour</a>
 	<?php endif; ?>
 	
 	<?php if($session->admin()): ?>
-    <a id="right-top" class="ui-btn-right" href="#popupadmin" data-rel="popup" data-icon="gear" data-iconpos="notext" data-transition="fade" >Admin</a>
+        <a id="right-top" class="ui-btn-right" href="#popupadmin" data-rel="popup" data-icon="gear" data-iconpos="notext" data-transition="fade" >Admin</a>
 	<?php endif; ?>
 </div> 

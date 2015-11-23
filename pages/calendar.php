@@ -17,6 +17,10 @@ addBddClasses(array('calendar','event','team'));
 /* ------------------------------------------------------------------------- */
 /* Entête de la page avec le titre et le bouton de retour                    */
 /* ------------------------------------------------------------------------- */
+if(isset($_GET['team_id'])) {
+    $session->set_team($_GET['team_id']);
+}
+
 // Suppression d'un évèvement
 // Si la requête est légitime (compte admin)
 if($session->admin()) {
@@ -35,6 +39,10 @@ addTop('Calendrier');
 /* Script jQuery (Quand la page jQueryMobile est chargée...)                 */
 /* ------------------------------------------------------------------------- */
 $('div:jqmData(role="page")').on('pagebeforeshow', function() {
+
+    $('#viewteam-calendar').on('change', function() {
+        changePage('calendar',{team_id: $('#viewteam-calendar option:selected').val()});
+    });
 
 	var cal = $('#std72-calendar');
 	
@@ -129,10 +137,18 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
 /* ------------------------------------------------------------------------- */
 ?><div data-role="content">
 
-    <?php $team = new Team(); 
-    $team->select($session->get_team());
-    if($team->next()): ?>
-        <h2 style="max-width: 700px; margin: 20px auto;"><?php echo $team->name; ?></h2>
+    <?php 
+    if($session->admin()): 
+        $teams = new Team();
+        $teams->select(); ?>
+        <div class="ui-field-contain" >
+            <select id="viewteam-calendar" data-theme="c" >
+                <option value="0" <?php if($session->get_team() == 0) echo 'selected="selected"'; ?> >Evènements en commun</option>
+                <?php while($teams->next()): ?>
+                <option value="<?php echo $teams->id; ?>" <?php if($session->get_team() == $teams->id) echo 'selected="selected"'; ?> ><?php echo $teams->name; ?></option>
+                <?php endwhile; ?>
+            </select>
+        </div>
     <?php endif; ?>
 
 	<div id="std72-calendar" ></div>

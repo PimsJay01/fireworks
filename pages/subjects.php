@@ -1,19 +1,16 @@
 <?php 
 /* ------------------------------------------------------------------------- */
-/* - Nom         : Subject
+/* - Nom         : Subject NON UTILISE ACTUELLEMENT 
 /* - Type        : Pages
 /* - Description : 
 /* - Auteur      : Jérémy Gobet
 /* ------------------------------------------------------------------------- */
 
+global $session;
 /* ------------------------------------------------------------------------- */
 /* Chargement des classes pour l'utilisation de la base de données           */
 /* ------------------------------------------------------------------------- */
-addBddClasse('forum');
-addBddClasse('player');
-addBddClasse('presence');
-addBddClasse('event');
-addBddClasse('messages');
+addBddClasses(array('forum','player','presence','event','messages'));
 
 /* ------------------------------------------------------------------------- */
 /* Entête de la page avec le titre et le bouton de retour                    */

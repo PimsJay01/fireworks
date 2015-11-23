@@ -16,7 +16,7 @@ include('inc/php/start.php'); ?>
     }
     else
     // Controle si l'identité du joueur est connue
-    if(($session->get_team() == 0) OR ($session->get_player() == 0)) {
+    if($session->get_player() == 0) {
         // L'identité du joueur n'est pas connue
         addPage('identification');
     }

@@ -2,8 +2,8 @@
 /* ------------------------------------------------------------------------- */
 /* - Nom         : Identification
 /* - Type        : Pages
-/* - Description : Permet d'identifier le joueur pendant la pahse de connexion.
-Cette information est conecervée dans les cookies.
+/* - Description : Permet d'identifier le joueur pendant la phase de connexion.
+/*                 Cette information est conservée dans les cookies.
 /* - Auteur      : Jérémy Gobet
 /* ------------------------------------------------------------------------- */
 

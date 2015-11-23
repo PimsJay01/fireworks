@@ -15,7 +15,7 @@ class Session{
         $bdd->set_value('player',$player);
         $bdd->set_where($bdd->equal('cookie',$this->getKey()));
         $bdd->update('info');
-        // Conserve l'équipe du joueur dans la session
+        // Conserve l'identifiant du joueur dans la session
         $_SESSION['player_id'] = $player;
     }
     
@@ -47,7 +47,7 @@ class Session{
         $bdd->set_value('state',$state);
         $bdd->set_where($bdd->equal('cookie',$this->getKey()));
         $bdd->update('info');
-        // Conserve l'équipe du joueur dans la session
+        // Conserve l'état du joueur dans la session
         $_SESSION['state'] = $state;
     }
     
@@ -55,38 +55,49 @@ class Session{
         return $_SESSION['state'];
     }
     
+    public function update_time($time) {
+        setcookie('session_key',$_COOKIE['session_key'],$time,'/fireworks',null,false,true);
+    }
+    
     public function admin() {
         return ($_SESSION['state'] > 1);
     }
 	
 	public function logout() {
-//         $this->set_state(0);
-        session_unset();
-        if(isset($_COOKIE['session_key'])) {
-            unset($_COOKIE['session_key']);
-            setcookie('session_key',null,-1,'/fireworks',null,false,true);
-        }
+        $bdd = new Bdd();
+        $bdd->set_where($bdd->equal('cookie',$this->getKey()));
+        $bdd->delete('info');
+        $this->createSession();
+//         session_unset();
+//         if(isset($_COOKIE['session_key'])) {
+//             unset($_COOKIE['session_key']);
+//             setcookie('session_key',null,-1,'/fireworks',null,false,true);
+//         }
 	}
 	
 	/* PRIVATE FUNCTIONS */
 	
 	private function createSession() {
+        $key = $this->getKey();
         $bdd = new Bdd();
         $bdd->set_select('player');
         $bdd->add_select('team');
         $bdd->add_select('state');
         $bdd->set_from('info');
-        $bdd->set_where($bdd->equal('cookie',$this->getKey()));
+        $bdd->set_where($bdd->equal('cookie', $key));
         //récupération des données
         $result = $bdd->select(0,1);
         if($row = $result->fetch_object()) {
             $_SESSION['player_id'] = $row->player;
             $_SESSION['team_id'] = $row->team;
             $_SESSION['state'] = $row->state;
-            
-            return true;
         }
-        return false;
+        else {
+            $this->saveKey($key);
+            $_SESSION['player_id'] = 0;
+            $_SESSION['team_id'] = 0;
+            $_SESSION['state'] = 0;
+        }
     }
 	
 	private function getKey() {
@@ -106,7 +117,7 @@ class Session{
         $bdd->add_value('state',0);
         $bdd->add_value('cookie',$key);
         $bdd->insert('info');
-        setcookie('session_key',$key,time()+30*24*3600,'/fireworks',null,false,true);
+        setcookie('session_key',$key,time()+3600,'/fireworks',null,false,true);
     }
 	
 	// Génére un clé unique

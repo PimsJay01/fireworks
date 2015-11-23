@@ -2,8 +2,8 @@
 /* ------------------------------------------------------------------------- */
 /* - Nom         : Login
 /* - Type        : Pages
-/* - Description : Page de connexion pour les joueurs de fireworks. L'équipe 
-et un mots de passe correct doivent être transmit pour se connecter.
+/* - Description : Page de connexion pour les joueurs du club. Le mot de passe
+/*                 correct doit-être transmis pour la connexion.
 /* - Auteur      : Jérémy Gobet
 /* ------------------------------------------------------------------------- */
 
@@ -26,17 +26,13 @@ addTop('Connexion');
 $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 
 	function buttonState(){
-		if(($('#fw1-login:checked').length || $('#fw2-login:checked').length) && $('#key-login').val().length)
+		if($('#key-login').val().length)
 			$('[type="submit"]').button('enable');
 		else
 			$('[type="submit"]').button('disable');
 	}
 	
 	buttonState();
-	
-	$('[type="radio"]').on('change', function() {
-		buttonState();
-	});
 	
 	$('[type="password"]').on('keyup', function(event) {
 		buttonState();
@@ -45,17 +41,6 @@ $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 			$('[type="submit"]').click();
 		}
 	});
-	
-// 	$('[type="submit"]').on('click', function() {
-// 		// Vérifie si une équipe à été sélectionné
-// 		if($('input[type=radio]:checked').length && $('#key-login').val().length) {
-// 			changePage('calendar',{
-// 				team_id: $('.team-login:checked:first').val(),
-// 				pass_key: $('#key-login').val()
-// 			});
-// 		}
-// 	});
-
 });
 </script>
 
@@ -63,15 +48,15 @@ $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 /* ------------------------------------------------------------------------- */
 /* Functions PHP poour la page                                               */
 /* ------------------------------------------------------------------------- */
-function initChecked($team_id) {
-    global $session;
-	// Si l'équipe du joueur est contenu dans les cookies
-	if($session->get_team() == $team_id) {
-		// Les checkbox sont initialisés
-		return 'checked="checked"';
-	}
-	return '';
-}
+// function initChecked($team_id) {
+//     global $session;
+// 	// Si l'équipe du joueur est contenu dans les cookies
+// 	if($session->get_team() == $team_id) {
+// 		// Les checkbox sont initialisés
+// 		return 'checked="checked"';
+// 	}
+// 	return '';
+// }
 ?>
 
 <?php 
@@ -84,7 +69,7 @@ function initChecked($team_id) {
         <img id="logo-login" src="inc/img/logo_fireworks.png" alt="image" style="width: 100%; max-width: 583px; margin: auto">
     </div>
     
-    <?php // Permet d'atteindre la page demndée après la connexion
+    <?php // Permet d'atteindre la page demandée après la connexion
     $action = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     if(!isset($_GET['page']) OR ($_GET['page'] == 'login')) {
         if(strpos($action,'?') > 0)
@@ -94,35 +79,42 @@ function initChecked($team_id) {
     ?>
     
     <form method="POST" action="<?php echo $action; ?>" enctype="multipart/form-data" >
-	<div id="team-login" data-role="fieldcontain" data-theme="b" >
-		<fieldset data-role="controlgroup" data-type="vertical" data-theme="b" >
-			<legend>
-				Sélectionnez votre équipe
-			</legend>
-			<?php 
-			$teams = new Team();
-			$teams->select();
-			while($teams->next()): ?>
-				<input id="fw<?php echo $teams->id; ?>-login" class="team-login" name="team_id" type="radio" value="<?php echo $teams->id; ?>" <?php echo initChecked($teams->id); ?> >
-				<label for="fw<?php echo $teams->id; ?>-login" >
-					<?php echo $teams->name; ?>
-				</label>
-			<?php endwhile; ?>
-		</fieldset>
-	</div>
     
-	<div data-role="fieldcontain" data-theme="c" >
-		<label for="key-login">
-			Mot clé de l'équipe 
-			<?php if(isset($_POST['pass_key'])): ?>
-				: <font color="red" >Erroné! Ressayez</font>
-			<?php endif; ?>
-        </label>
-		<!-- Ajouter action sur le onEnter --> 
-		<input id="key-login" name="pass_key" placeholder="" value="" type="password" data-theme="c" >
-	</div>
+        <?php if(isset($_POST['pass_key'])): ?>
+            <style>
+                .bar-error{
+                    background-color: #F00;
+                    color: white;
+                    text-shadow: none;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+            </style>
+            <div class="bar-error ui-bar ui-corner-all">
+                <p>Le mot clé fourni est erroné !</p>
+            </div>
+        <?php endif; ?>
+    
+        <div data-role="fieldcontain" data-theme="c" >
+            <label for="key-login">
+                Mot clé de l'équipe
+            </label>
+            <input id="key-login" name="pass_key" placeholder="" value="" type="password" data-theme="c" >
+        </div>
+        
+        <div data-role="fieldcontain">
+            <label for="checkbox-login">
+                Rester connecté
+            </label>
+            <?php if(isset($_POST['checkbox-login'])): ?>
+                <input type="checkbox" name="checkbox-login" id="checkbox-login" data-theme="c" checked>
+            <?php else: ?>
+                <input type="checkbox" name="checkbox-login" id="checkbox-login" data-theme="c" >
+            <?php endif; ?>
+        </div>
 
-	<input value="Confirmer" data-theme="b" type="submit" >
+        <input value="Confirmer" data-theme="b" type="submit" >
 	</form>
 
 </div>

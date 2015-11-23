@@ -205,7 +205,7 @@ class Bdd
         $value = $this->connect->escape($value);
 		if(is_string($field) AND !empty($field))
 		{
-			$this->value .= $this->equal($field,$value);
+			$this->value = $this->equal($field,$value);
 		}
 	}
 	

@@ -15,6 +15,10 @@ addBddClasses(array('forum','messages','view','team'));
 /* ------------------------------------------------------------------------- */
 /* Entête de la page avec le titre et le bouton de retour                    */
 /* ------------------------------------------------------------------------- */
+if(isset($_GET['team_id'])) {
+    $session->set_team($_GET['team_id']);
+}
+
 // Suppression d'un évèvement
 // Si la requête est légitime (compte admin)
 if($session->admin()) {
@@ -34,6 +38,10 @@ addTop('Forum');
 /* ------------------------------------------------------------------------- */
 $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 
+    $('#viewteam-forum').on('change', function() {
+        changePage('forum',{team_id: $('#viewteam-forum option:selected').val()});
+    });
+    
 	$('.messages-forum').on('click', function() {
 		changePage('messages',{forum_id: $(this).attr('id')});
 	});
@@ -59,6 +67,20 @@ $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 /* Eléments graphiques jQuery Mobile qui composent la page                   */
 /* ------------------------------------------------------------------------- */
 ?><div data-role="content">
+
+    <?php 
+    if($session->admin()): 
+        $teams = new Team();
+        $teams->select(); ?>
+        <div class="ui-field-contain" >
+            <select id="viewteam-forum" data-theme="c" >
+                <option value="0" <?php if($session->get_team() == 0) echo 'selected="selected"'; ?> >Evènements en commun</option>
+                <?php while($teams->next()): ?>
+                <option value="<?php echo $teams->id; ?>" <?php if($session->get_team() == $teams->id) echo 'selected="selected"'; ?> ><?php echo $teams->name; ?></option>
+                <?php endwhile; ?>
+            </select>
+        </div>
+    <?php endif; ?>
 
 	<ul data-role="listview" data-divider-theme="c" data-inset="true">
         <li data-role="list-divider" role="heading">

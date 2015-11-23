@@ -8,16 +8,12 @@ $session = new Session();
 
 // Si il y a une demande de deconnexion
 if(isset($_GET['page']) AND ($_GET['page'] == 'login')) {
-	$session->logout();
+    $session->logout();
 }
 else
 // Si il y a une tentative de connexion
-if(isset($_POST['pass_key']) AND isset($_POST['team_id'])) {
-    // Vérifier si l'id correspond à celui d'une équipe de la bdd
-    // ...
-    // Sauvegarde de l'équipe
-    $session->set_team((int)$_POST['team_id']);
-    // Sauvegarde l'état de l'utilisateur
+if(isset($_POST['pass_key'])) {
+    // Gestion etat utilisateur (0=non-connecté, 1=player, 2=admin)
     $state = 0;
     if($_POST['pass_key'] == $mdp1) {
         $state = 1;
@@ -26,6 +22,13 @@ if(isset($_POST['pass_key']) AND isset($_POST['team_id'])) {
         $state = 2;
     }
     $session->set_state($state);
+    // Mise à jour du temps de connexion
+    if(isset($_POST['checkbox-login'])) {
+        $session->update_time(time()+(30*24*3600));
+    }
+    else {
+        $session->update_time(time()+3600);
+    }
 }
 else
 // Si il a une demande d'identification

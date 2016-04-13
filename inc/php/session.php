@@ -56,7 +56,7 @@ class Session{
     }
     
     public function update_time($time) {
-        setcookie('session_key',$_COOKIE['session_key'],$time,'/fireworks',null,false,true);
+        setcookie('session_key',$_COOKIE['session_key'],$time,'/',null,false,true);
     }
     
     public function admin() {
@@ -71,7 +71,7 @@ class Session{
 //         session_unset();
 //         if(isset($_COOKIE['session_key'])) {
 //             unset($_COOKIE['session_key']);
-//             setcookie('session_key',null,-1,'/fireworks',null,false,true);
+//             setcookie('session_key',null,-1,'/',null,false,true);
 //         }
 	}
 	
@@ -117,7 +117,7 @@ class Session{
         $bdd->add_value('state',0);
         $bdd->add_value('cookie',$key);
         $bdd->insert('info');
-        setcookie('session_key',$key,time()+3600,'/fireworks',null,false,true);
+        setcookie('session_key',$key,time()+3600,'/',null,false,true);
     }
 	
 	// Génére un clé unique

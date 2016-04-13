@@ -31,7 +31,11 @@ if(isset($_POST)){
             echo json_encode(array('statut' => 'ok', 'events' => $events));
         }
         else {
-            echo json_encode(array('statut' => 'empty'));
+            echo json_encode(array('statut' => 'empty', 
+				'team' => $session->get_team(),
+				'player' => $session->get_player(),
+				'i' => $i,
+            ));
         }
         
         exit(0);

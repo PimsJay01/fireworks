@@ -12,7 +12,8 @@ include('inc/php/start.php'); ?>
     // Controle si l'utilisateur est connecté
     if($session->get_state() == 0) {
         // L'utilisateur n'est pas connecté
-        addPage('login');
+        addPage('calendar');
+//         addPage('login');
     }
     else
     // Controle si l'identité du joueur est connue

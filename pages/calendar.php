@@ -1,10 +1,12 @@
 <?php 
 /* ------------------------------------------------------------------------- */
-/* - Nom         : Calendar
+/* - Nom         : Calendar & Login
 /* - Type        : Pages
 /* - Description : Affiche un calendrier par mois avec les évènements marqué
 /* d'un rond de couleur selon le type. Un clique sur le rond permet d'atteindre
-/* la page d'évènements avec ses informations.
+/* la page d'évènements avec ses informations. Ainsi Page de connexion pour les
+/* joueurs du club. Le mot de passe correct doit-être transmis pour la 
+/* connexion.
 /* - Auteur      : Jérémy Gobet
 /* ------------------------------------------------------------------------- */
 
@@ -31,7 +33,12 @@ if($session->admin()) {
     }
 }
 
-addTop('Calendrier');
+if($session->get_state() == 0) {
+	addTop('Login');
+}
+else {
+	addTop('Calendrier');
+}
 ?>
 
 <script>
@@ -40,6 +47,27 @@ addTop('Calendrier');
 /* ------------------------------------------------------------------------- */
 $('div:jqmData(role="page")').on('pagebeforeshow', function() {
 
+	<?php if($session->get_state() == 0): ?>
+	
+	function buttonState(){
+		if($('#key-login').val().length)
+			$('[type="submit"]').button('enable');
+		else
+			$('[type="submit"]').button('disable');
+	}
+	
+	buttonState();
+	
+	$('[type="password"]').on('input', function(event) {
+		buttonState();
+		// Confirme le formulaire si ENTER est pressé
+		if(event.which == 13){
+			$('[type="submit"]').click();
+		}
+	});
+	
+	<?php endif; ?>
+	
     $('#viewteam-calendar').on('change', function() {
         changePage('calendar',{team_id: $('#viewteam-calendar option:selected').val()});
     });
@@ -70,6 +98,12 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
                         }
                     });
                 });
+            }
+            else {
+				console.log('évènements non réccupérés');
+				console.log(options.team);
+				console.log(options.player);
+				console.log(options.i);
             }
             hideLoading();
         })
@@ -119,7 +153,6 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
             });
 		}
 	});
-	
 	<?php endif; ?>
 
 });
@@ -137,8 +170,61 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
 /* ------------------------------------------------------------------------- */
 ?><div data-role="content">
 
+	<?php // Permet d'atteindre la page demandée après la connexion
+    $action = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    if(!isset($_GET['page']) OR ($_GET['page'] == 'login')) {
+        if(strpos($action,'?') > 0)
+            $action = substr($action,0,strpos($action,'?'));
+        $action .= "?page=calendar";
+    }
+    ?>
+    
+    <?php if($session->get_state() == 0): ?>
+    
+    <form method="POST" action="<?php echo $action; ?>" enctype="multipart/form-data" >
+		<div data-theme="a" data-form="ui-body-a" style="margin-bottom: 50px;" class="ui-body ui-body-a ui-corner-all">		
+			<?php if(isset($_POST['pass_key'])): ?>
+				<style>
+					.bar-error{
+						background-color: #F00;
+						color: white;
+						text-shadow: none;
+						font-size: 18px;
+						text-align: center;
+						margin-bottom: 25px;
+					}
+				</style>
+				<div class="bar-error ui-bar ui-corner-all">
+					<p>Le mot clé fourni est erroné !</p>
+				</div>
+			<?php endif; ?>
+		
+			<div data-role="fieldcontain" data-theme="c" >
+				<label for="key-login">
+					Mot clé de l'équipe
+				</label>
+				<input id="key-login" name="pass_key" placeholder="" value="" type="password" data-theme="c" >
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="checkbox-login">
+					Rester connecté
+				</label>
+				<?php if(isset($_POST['checkbox-login'])): ?>
+					<input type="checkbox" name="checkbox-login" id="checkbox-login" data-theme="c" checked>
+				<?php else: ?>
+					<input type="checkbox" name="checkbox-login" id="checkbox-login" data-theme="c" >
+				<?php endif; ?>
+			</div>
+
+			<input value="Confirmer" data-theme="b" type="submit" >
+		</div>
+	</form>
+	
+	<?php endif; ?>
+	
     <?php 
-    if($session->admin()): 
+    //if($session->admin()): 
         $teams = new Team();
         $teams->select(); ?>
         <div class="ui-field-contain" >
@@ -149,7 +235,7 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
                 <?php endwhile; ?>
             </select>
         </div>
-    <?php endif; ?>
+    <?php //endif; ?>
 
 	<div id="std72-calendar" ></div>
 	
@@ -194,5 +280,7 @@ $('div:jqmData(role="page")').on('pagebeforeshow', function() {
 /* ------------------------------------------------------------------------- */
 /* Boutons de navigations (Calendrier, Joueurs, Forum, Lougout)              */
 /* ------------------------------------------------------------------------- */
-addBottom(1);
+if($session->get_state() > 0) {
+	addBottom(1);
+}
 ?>

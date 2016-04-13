@@ -34,7 +34,7 @@ $('div:jqmData(role="page")').on('pagebeforeshow',function(){
 	
 	buttonState();
 	
-	$('[type="password"]').on('keyup', function(event) {
+	$('[type="password"]').on('input', function(event) {
 		buttonState();
 		// Confirme le formulaire si ENTER est pressé
 		if(event.which == 13){
